@@ -25,17 +25,6 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.22</version>
 		</dependency>
-		<!-- DB2驱动jar包 -->
-		<dependency>
-			<groupId>cn.guoyukun.jdbc</groupId>
-			<artifactId>db2jcc</artifactId>
-			<version>1.4.2</version>
-		</dependency>
-		<dependency>
-			<groupId>cn.guoyukun.jdbc</groupId>
-			<artifactId>db2jcc_license_cu</artifactId>
-			<version>1.4.2</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -81,7 +70,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>bsafe-end-service</finalName>
+		<finalName>common-generate</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

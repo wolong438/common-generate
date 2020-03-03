@@ -21,7 +21,7 @@ public enum FileType {
   SERVICE("Service.java", "业务接口"),
   SERVICE_IMPL("ServiceImpl.java", "业务接口实现"),
   SERVICE_API("Api.java", "服务接口"),
-  SERVICE_Client("Client.java", "服务接口的实现"),
+  SERVICE_Client("Service.java", "服务接口的实现"),
 
   CONTROLLER("Controller.java", "请求控制器"),
   ;

@@ -11,8 +11,8 @@ import ${packageMap.serviceApi}.${modelName}Api;
 * @author ${author}
 * @date ${date}
 */
-//@FeignClient("app-${modelName}-producer")
+//@FeignClient("${appName}")
 @Component
-public interface ${modelName}Client extends ${modelName}Api{
+public interface ${modelName}Service extends ${modelName}Api{
 
 }

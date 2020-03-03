@@ -8,8 +8,6 @@ import java.util.Set;
 public class ResourceUtil {
   /** 主配置文件 **/
   private static ResourceBundle appResource = ResourceBundle.getBundle("application");
-  /** 表名映射文件 **/
-  private static ResourceBundle tableResource = ResourceBundle.getBundle("tableName");
   /** 字段类型映射文件 **/
   private static ResourceBundle jdbcTypeResource = ResourceBundle.getBundle("jdbcType");
   /** 模板文件前缀 */
@@ -21,14 +19,6 @@ public class ResourceUtil {
 
   public static String getAppValue(String key) {
     return appResource.getString(key);
-  }
-
-  public static String getTableValue(String key) {
-    return tableResource.getString(key);
-  }
-
-  public static String getJdbcTypeValue(String key) {
-    return jdbcTypeResource.getString(key);
   }
 
   /**

@@ -1,7 +1,5 @@
 package com.dux.example.common.generate.beans;
 
-import com.dux.example.common.generate.beans.Params;
-
 public class CloudParams extends Params {
   /**
    * 作者
@@ -12,6 +10,11 @@ public class CloudParams extends Params {
    * 日期
    */
   private String date;
+
+  /**
+   * 应用名称
+   */
+  private String appName;
 
   public String getAuthor() {
     return author;
@@ -27,5 +30,13 @@ public class CloudParams extends Params {
 
   public void setDate(String date) {
     this.date = date;
+  }
+
+  public String getAppName() {
+    return appName;
+  }
+
+  public void setAppName(String appName) {
+    this.appName = appName;
   }
 }

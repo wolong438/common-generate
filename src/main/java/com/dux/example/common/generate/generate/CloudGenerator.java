@@ -20,17 +20,16 @@ public class CloudGenerator extends BaseCloudGenerator{
   }
 
   public static void generate() {
-    // src.main.java的物理路径
-    String basePath = ClassLoader.getSystemResource("").getPath().replaceFirst("/", "");
-    basePath = basePath.replace("/target/classes/", "") + "/src/main/java/";
+    // 如果没有指定输出文件夹，则默认输出到当前项目的src.main.java目录下
+    if (StringUtils.isEmpty(Constants.PATH_OUTPUT)) {
+      String basePath = ClassLoader.getSystemResource("").getPath().replaceFirst("/", "");
+      basePath = basePath.replace("/target/classes/", "") + "/src/main/java/";
+      Constants.PATH_OUTPUT = basePath;
+    }
 
     // 获取模板名字集合、包名集合和其它相关信息
     Map<String, String> templateMap = ResourceUtil.getTemplateMap();
     Map<String, String> packageMap = ResourceUtil.getPackageMap();
-    String date = new SimpleDateFormat("yyyy/M/d").format(new Date());
-    String author = ResourceUtil.getAppValue("app.author");
-
-    ResourceBundle tableResource = Constants.tableResource;
     List<ModelBean> modelBeans = getModelBeans(
             Constants.JDBC_DRIVER,
             Constants.JDBC_URL,
@@ -40,19 +39,15 @@ public class CloudGenerator extends BaseCloudGenerator{
             Constants.SQL_TABLE_PREFIX);
     System.out.println("modelBeans:" + modelBeans);
     for (ModelBean modelBean : modelBeans) {
-      //默认时按下划线转驼峰命名的方式转化表名、表字段名到实体类名、字段名，当两者不能简单的转化时，需要配置名字转化。
-      String realModelName = tableResource.getString(modelBean.getTableName().toUpperCase());
-      if (!StringUtil.isBlank(realModelName)) {
-        modelBean.setModelName(realModelName);
-      }
       //设置模板数据
       CloudParams params = new CloudParams();
       params.setModelBean(modelBean);
       params.setPackageMap(packageMap);
       params.setTemplateMap(templateMap);
       params.setOutputPath(Constants.PATH_OUTPUT);
-      params.setAuthor(author);
-      params.setDate(date);
+      params.setAuthor(Constants.APP_AUTHOR);
+      params.setDate(Constants.APP_DATE);
+      params.setAppName(Constants.APP_NAME);
       BaseCloudGenerator generator = new BaseCloudGenerator();
       generator.generate(params);
     }
