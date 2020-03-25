@@ -26,6 +26,18 @@
 			<version>5.1.22</version>
 		</dependency>
 
+		<!-- DB2驱动jar包 -->
+		<dependency>
+			<groupId>cn.guoyukun.jdbc</groupId>
+			<artifactId>db2jcc</artifactId>
+			<version>1.4.2</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.guoyukun.jdbc</groupId>
+			<artifactId>db2jcc_license_cu</artifactId>
+			<version>1.4.2</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
